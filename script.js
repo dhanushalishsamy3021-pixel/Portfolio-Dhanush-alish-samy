@@ -84,9 +84,14 @@ contactForm.addEventListener('submit', (e) => {
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
     
-    // Here you would typically send the form data to a server
-    // For now, we'll just show an alert
-    alert(`Thank you for your message, ${name}! I'll get back to you soon.`);
+    // Construct the mailto link
+    const mailtoLink = `mailto:kingthanushkingthanush@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+    
+    // Open the user's email client
+    window.location.href = mailtoLink;
+    
+    // Optional: Show a message to the user
+    console.log(`Email client opened for ${name}`);
     
     // Reset form
     contactForm.reset();
